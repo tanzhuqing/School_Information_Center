@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TabHost xmlns:android="http://schemas.android.com/apk/res/android"
+         android:id="@android:id/tabhost"
+         android:layout_width="fill_parent"
+         android:layout_height="fill_parent"
+         android:background="@drawable/info_bg">
+
+    <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical"
+            >
+
+        <TextView
+                android:id="@+id/info_main_title"
+                android:layout_width="fill_parent"
+                android:layout_height="40.0dip"
+                android:background="@drawable/notice_top"
+                android:gravity="center"
+                android:text=""
+                android:textColor="#ffffff"
+                android:textSize="20.0dip"/>
+
+        <ListView
+                android:id="@+id/info_list"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2.0dip"
+                android:divider="@drawable/divider"
+                android:dividerHeight="1.0dip"
+                android:cacheColorHint="#00000000"
+                />
+
+        <FrameLayout
+                android:id="@android:id/tabcontent"
+                android:layout_width="fill_parent"
+                android:layout_height="0.0dip"
+                android:layout_weight="1.0"/>
+
+        <TabWidget
+                android:id="@android:id/tabs"
+                android:layout_width="fill_parent"
+                android:layout_height="0.0dip"
+                android:layout_weight="0.0"
+                android:visibility="gone"/>
+
+        <RadioGroup
+                android:id="@+id/main_radio"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:background="@drawable/info_toolbar_bg"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+            <RadioButton
+                    android:id="@+id/info_notice_btn"
+                    style="@style/info_tab_bottom"
+                    android:layout_marginTop="2.0dip"
+                    android:drawableTop="@drawable/info_notice_btn"
+                    android:tag="radio_button0"
+                    android:text="@string/info_notice"
+                    android:checked="true"
+                    />
+
+            <RadioButton
+                    android:id="@+id/info_lecture_btn"
+                    style="@style/info_tab_bottom"
+                    android:layout_marginTop="2.0dip"
+                    android:drawableTop="@drawable/info_lecture_btn_pressed"
+                    android:tag="radio_button1"
+                    android:text="@string/info_lecture"
+                    />
+
+            <RadioButton
+                    android:id="@+id/info_info_btn"
+                    style="@style/info_tab_bottom"
+                    android:layout_marginTop="2.0dip"
+                    android:drawableTop="@drawable/info_info_btn_pressed"
+                    android:tag="radio_button2"
+                    android:text="@string/info_info"
+                    />
+
+        </RadioGroup>
+    </LinearLayout>
+
+</TabHost>

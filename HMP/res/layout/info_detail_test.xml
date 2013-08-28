@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/organizationbg"
+    android:orientation="vertical" >
+
+    <!-- 标签标题 -->
+
+    <TextView
+        android:id="@+id/info_detail_main_title"
+        android:layout_width="fill_parent"
+        android:layout_height="40.0dip"
+        android:background="@drawable/com_ttb_bg"
+        android:gravity="center"
+        android:textColor="#ffffffff"
+        android:textSize="18.0dip" />
+
+    <!-- 内容标题 -->
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+
+        <!-- 标题 -->
+
+        <TextView
+            android:id="@+id/info_detail_title"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="10.0dip"
+            android:layout_marginRight="10.0dip"
+            android:layout_marginTop="10dip"
+            android:textColor="#001821"
+            android:textSize="20dip"
+            android:textStyle="bold" />
+        
+        <!-- 日期 -->
+
+        <TextView
+            android:id="@+id/info_detail_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignRight="@id/info_detail_title"
+            android:layout_below="@id/info_detail_title"
+            android:layout_marginRight="10.0dip"
+            android:textColor="#001821"
+            android:textSize="10dp" />
+    </RelativeLayout>
+
+    <!-- 下划线 -->
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+
+        <ImageView
+            android:id="@+id/underline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/underline" />
+    </LinearLayout>
+
+    <!-- 内容视图 -->
+
+    <ScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginTop="10dip"
+        android:scrollbars="vertical" >
+
+        <LinearLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <!-- 内容 -->
+
+            <TextView
+                android:id="@+id/info_detail_content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:lineSpacingExtra="12dip"
+                android:maxLines="100"
+                android:scrollbars="vertical"
+                android:textColor="#001821"
+                android:textSize="15sp"
+                android:layout_marginLeft="6dip"
+                android:layout_marginRight="6dip"
+                 />
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

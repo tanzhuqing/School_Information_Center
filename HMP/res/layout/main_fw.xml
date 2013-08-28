@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout 
+	android:orientation="vertical" 
+	android:background="@drawable/main_bg2" 
+	android:layout_width="fill_parent" 
+	android:layout_height="fill_parent" 
+	xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout 
+		android:gravity="center" 
+		android:orientation="vertical" 
+		android:layout_width="fill_parent" 
+		android:layout_height="fill_parent" 
+		android:layout_weight="1.0">
+		 <TextView android:textColor="#fff"
+			android:layout_width="wrap_content" 
+			android:layout_height="40dip" 
+			android:layout_marginTop="30dip" 
+			android:textSize="30dip"
+			android:text="哈尔滨工程大学" />
+		<TextView android:textColor="#fff"
+			android:layout_width="wrap_content" 
+			android:layout_height="30dip" 
+			android:textSize="20dip"
+			android:text="校园信息化门户" />
+		<ScrollView 
+			android:layout_width="fill_parent" 
+			android:layout_height="fill_parent" 
+			android:layout_marginTop="-30dip" 
+			android:layout_weight="1.0">
+			<RelativeLayout android:layout_width="wrap_content" android:layout_height="wrap_content">
+				
+				<LinearLayout android:layout_width="fill_parent" android:layout_height="fill_parent">
+					<LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginRight="17.0dip" android:layout_weight="1.0">
+                        
+                        <LinearLayout 
+                        	android:gravity="center" android:orientation="vertical" 
+                       	 	android:background="@drawable/kongbian" 
+                       	 	android:layout_width="wrap_content" android:layout_height="wrap_content">
+                            <LinearLayout
+                            	android:id="@+id/but_a"
+								android:gravity="center" android:orientation="vertical" 
+								android:layout_width="wrap_content" android:layout_height="wrap_content">
+                                <ImageView android:clickable="true"
+                                	android:id="@+id/but_aa"
+	                                android:layout_width="wrap_content" 
+	                                android:layout_height="wrap_content" 
+	                                android:src="@drawable/kong" />
+                                <TextView android:textColor="#ff666666" android:clickable="true" 
+	                                android:layout_width="wrap_content" 
+	                                android:layout_height="wrap_content" 
+	                                android:text=" " />
+                            </LinearLayout>
+                        </LinearLayout>
+                        <LinearLayout 
+                        	android:id="@+id/but_b"
+							android:gravity="center" android:orientation="vertical" 
+							android:background="@drawable/image_n1" android:layout_width="wrap_content" 
+							android:layout_height="wrap_content">
+                            <LinearLayout 
+								android:gravity="center" android:orientation="vertical" 
+								android:layout_width="wrap_content" android:layout_height="wrap_content">
+                                <ImageView
+                                	android:id="@+id/but_bb"
+									android:clickable="true" 
+									android:layout_width="wrap_content" android:layout_height="wrap_content" 
+									android:src="@drawable/main_bb" />
+                                <TextView 
+									android:textColor="#ff666666" android:clickable="true" 
+									android:layout_width="wrap_content" android:layout_height="wrap_content" 
+									android:text="通知公告" />
+                            </LinearLayout>
+                        </LinearLayout>
+						
+                        <LinearLayout 
+                        	android:id="@+id/but_c"
+							android:gravity="center" android:orientation="vertical" 
+							android:background="@drawable/image_n1" 
+							android:layout_width="wrap_content" android:layout_height="wrap_content">
+                            <LinearLayout 
+								android:gravity="center" android:orientation="vertical" 
+								android:layout_width="wrap_content" android:layout_height="wrap_content">
+                                <ImageView 
+                                	android:id="@+id/but_cc"
+									android:clickable="true" 
+									android:layout_width="wrap_content" android:layout_height="wrap_content" 
+									android:src="@drawable/main_cc" />
+                                <TextView 
+									android:textColor="#ff666666" 
+									android:clickable="true" 
+									android:layout_width="wrap_content" 
+									android:layout_height="wrap_content" 
+									android:text="周边环境" />
+                            </LinearLayout>
+                        </LinearLayout>
+                        
+                    </LinearLayout>
+                    
+                    <LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginLeft="17.0dip" android:layout_weight="1.0">
+						<LinearLayout android:id="@+id/but_d" android:gravity="center" android:orientation="vertical" android:background="@drawable/kongbian" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                            <LinearLayout android:gravity="center" android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                                <ImageView android:id="@+id/but_dd" android:clickable="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/kong" />
+                                <TextView android:textColor="#ff666666" android:clickable="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text=" " />
+                            </LinearLayout>
+                        </LinearLayout>
+                        <LinearLayout android:id="@+id/but_e" android:gravity="center" android:orientation="vertical" android:background="@drawable/image_n1" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                            <LinearLayout android:gravity="center" android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                                <ImageView android:id="@+id/but_ee" android:clickable="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/main_ee" />
+                                <TextView android:textColor="#ff666666" android:clickable="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="空闲教室" />
+                            </LinearLayout>
+                        </LinearLayout>
+                        <LinearLayout android:id="@+id/but_f" android:gravity="center" android:orientation="vertical" android:background="@drawable/image_n1" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                            <LinearLayout android:gravity="center" android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                                <ImageView android:id="@+id/but_ff" android:clickable="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/main_ff" />
+                                <TextView android:textColor="#ff666666" android:clickable="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="校园电话" />
+                            </LinearLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+				</LinearLayout>
+				
+				<LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginTop="50.799988dip" android:layout_weight="1.0">
+                    
+					<LinearLayout android:id="@+id/but_g" android:gravity="center" android:orientation="vertical" android:background="@drawable/image_n1" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                        <LinearLayout  android:gravity="center" android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                            <ImageView android:id="@+id/but_gg"  android:clickable="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/main_gg" />
+                            <TextView android:textColor="#ff666666" android:clickable="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="热点新闻" />
+                        </LinearLayout>
+                    </LinearLayout>
+                    
+					<LinearLayout android:id="@+id/but_h" android:gravity="center" android:orientation="vertical" android:background="@drawable/image_n1" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                        <LinearLayout android:gravity="center" android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                            <ImageView android:id="@+id/but_hh" android:clickable="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/main_hh" />
+                            <TextView android:textColor="#ff666666" android:clickable="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="校园概况" />
+                        </LinearLayout>
+                    </LinearLayout>
+                    
+					<LinearLayout android:id="@+id/but_r" android:gravity="center" android:orientation="vertical" android:background="@drawable/image_n1" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                        <LinearLayout android:gravity="center" android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                            <ImageView android:id="@+id/but_rr" android:clickable="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/main_rr" />
+                            <TextView android:textColor="#ff666666" android:clickable="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="后台登录" />
+                        </LinearLayout>
+                    </LinearLayout>
+					
+                </LinearLayout>
+                
+			</RelativeLayout>
+		</ScrollView>
+	</LinearLayout>
+</LinearLayout>

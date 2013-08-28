@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <TextView 
+            android:id="@+id/kxjs_jxl_name"
+            android:layout_width="match_parent"
+            android:layout_height="40dip"
+            android:background="@drawable/common_top_bg"
+            android:textColor="#FFFFFF"
+            android:textSize="18dip" 
+            android:gravity="center"
+            android:text="@string/kxjs" />
+
+    <ListView
+    	android:id="@+id/lv_jxl"
+        android:layout_width="match_parent"
+       	android:layout_height="match_parent"
+       	android:background="@drawable/common_center_bg_dark"
+       	android:divider="@drawable/dividerline"     
+        android:dividerHeight="2dip" />
+</LinearLayout>

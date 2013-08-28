@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">工程大学门户系统</string>
+    <string name="news_name">新闻列表</string>
+    <string name="loadmore">获取更多</string>
+    <string name="xyfg">校园风光</string>
+    <string name="kxjs">空闲教室</string>
+    <string name="login">后台登录</string>
+    <string name="myspps">我的应用</string>
+    <string name="out_tab1">直属</string>
+    <string name="out_tab2">机关</string>
+    <string name="out_tab3">院系</string>
+    <string name="gut_tab1">交通模式</string>
+    <string name="gut_tab2">街景模式</string>
+    <string name="gut_tab3">卫星模式</string>
+    <string name="an_tab1">美食</string>
+    <string name="an_tab2">娱乐</string>
+    <string name="an_tab3">购物</string>
+    <string name="retrieving_data">数据加载中,请稍候....</string>
+    <string name="missing_data">没有数据</string>
+    <string name="info_notice">重要通知</string>
+    <string name="info_lecture">会议讲座</string>
+    <string name="info_info">综合信息</string>
+    <string name="menu_search">校园美景</string>
+    <string name="main_home">学校简介</string>
+    <string name="main_my_info">组织机构</string>
+    <string name="main_news">辉煌校史</string>
+    <string name="situation">学校简介</string>
+    <string name="tel_top">校园电话</string>
+    <string name="around_top">周边环境</string>
+    
+    
+    
+    
+
+    <attr name="textwidth" format="integer" />
+    <attr name="typeface">
+        <enum name="normal" value="0" />
+        <enum name="sans" value="1" />
+        <enum name="serif" value="2" />
+        <enum name="monospace" value="3" />
+    </attr>
+
+    <declare-styleable name="CYTextView">
+        <attr name="textwidth" />
+        <attr name="textSize" format="dimension" />
+        <attr name="textColor" format="reference|color" />
+        <attr name="lineSpacingExtra" format="dimension" />
+        <attr name="typeface" />
+    </declare-styleable>
+
+</resources>

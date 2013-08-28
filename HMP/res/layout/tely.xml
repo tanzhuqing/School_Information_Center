@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical" android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	android:focusable="true"
+    android:focusableInTouchMode="true"
+	android:background="@drawable/tel_aroundback"> 
+	<TableLayout 
+	android:layout_width="fill_parent" 
+	android:layout_height="fill_parent" 
+	android:stretchColumns="1">
+	   <TableRow>		
+		<EditText
+		    android:id="@+id/userEditText"
+		    android:layout_width="269dp"
+		    android:layout_height="52dp"
+		    android:text="" />
+		<ImageButton
+		    android:id="@+id/imageButton1"
+		    android:layout_width="30dp"
+		    android:layout_height="52dp"
+		    android:src="@drawable/search" />
+		</TableRow>
+  <View 
+   	android:layout_width="fill_parent"
+   	android:layout_height="2px"
+   	android:background="@drawable/dividerline"
+   	android:paddingTop="6px"
+   	android:paddingBottom="6px"/> 
+	<ListView android:id="@+id/myListView"
+	    android:layout_width="fill_parent"
+		android:layout_height="fill_parent" 
+		android:divider="@drawable/dividerline"     
+        android:dividerHeight="2px"  
+	/>
+	  </TableLayout>
+</RelativeLayout>

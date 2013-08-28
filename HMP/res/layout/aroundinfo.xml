@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:orientation="vertical"
+  android:layout_width="fill_parent"
+  android:layout_height="fill_parent"
+  android:background="@drawable/tel_aroundback"> 
+   <LinearLayout  
+  	android:orientation="horizontal"
+  	android:layout_width="wrap_content"
+  	android:layout_height="wrap_content"
+  	android:paddingLeft="0px"
+  	android:paddingTop="0px">
+  	  	<TextView
+  	    android:id="@+id/info_main_title"
+  	    android:layout_width="wrap_content"
+  	    android:layout_height="40.0dip"
+  	    android:background="@drawable/top"
+  	    android:gravity="center"
+  	    android:text="@string/around_top"
+  	    android:textColor="#ffffffff"
+  	    android:textSize="18.0dip" />
+  	  </LinearLayout> 
+  <LinearLayout  
+  	android:orientation="horizontal"
+  	android:layout_width="wrap_content"
+  	android:layout_height="wrap_content"
+  	android:paddingLeft="6px"
+  	android:paddingTop="6px">     
+  	<ImageView 
+  		android:id="@+id/imageView1"
+  		android:layout_width="wrap_content"
+  		 android:layout_height="100px"
+  		/>
+   </LinearLayout> 
+   <LinearLayout  
+  	android:orientation="horizontal"
+  	android:layout_width="wrap_content"
+  	android:layout_height="wrap_content"
+  	android:paddingLeft="6px"
+  	android:paddingTop="6px">
+  	<TextView 
+  		android:id="@+id/t03"
+  		android:layout_width="wrap_content"
+  		android:layout_height="wrap_content"
+  		android:text="简介:"/>
+   </LinearLayout>  
+    <LinearLayout  
+  	android:orientation="horizontal"
+  	android:layout_width="wrap_content"
+  	android:layout_height="wrap_content"
+  	android:paddingLeft="6px"
+  	android:paddingTop="6px">
+  	<TextView 
+	android:id="@+id/text1"
+	android:layout_width="fill_parent"
+	android:layout_height="200px"
+	android:scrollbars="vertical"
+	android:singleLine="false" 
+	android:textColor="#FF0000"
+	android:layout_x="0px"
+	android:layout_y="0px"
+  		/>
+   </LinearLayout>   
+   <TabHost
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@android:id/tabhost"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical" >
+            
+			<FrameLayout
+                android:id="@+id/msg_title"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone" >
+                <TextView
+                    android:id="@+id/tv_wb"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/titlebar_lightgray_bg" >
+                </TextView>
+            </FrameLayout> 
+            <FrameLayout
+                android:id="@android:id/tabcontent"
+                android:layout_width="fill_parent"
+                android:layout_height="0.0dip"
+                android:layout_weight="1.0" />          
+            <TabWidget
+                android:id="@android:id/tabs"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.0"
+                android:visibility="gone" />
+
+            <RadioGroup
+                android:id="@+id/main_radio"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:background="@drawable/btnbg"
+                android:gravity="center_vertical"
+                android:orientation="horizontal" >
+
+                <RadioButton
+                    android:id="@+id/radio_button0"
+                    style="@style/main_tab_bottom"
+                    android:layout_marginTop="2.0dip"
+                    android:drawableTop="@drawable/aroundtel_01"
+                    android:tag="radio_button0"
+                    android:text="拨打电话" />
+
+                <RadioButton
+                    android:id="@+id/radio_button1"
+                    style="@style/main_tab_bottom"
+                    android:layout_marginTop="2.0dip"
+                    android:drawableTop="@drawable/aroundadd_01"
+                    android:tag="radio_button1"
+                    android:text="所在位置" />
+            </RadioGroup>
+        </LinearLayout>
+    </TabHost>
+</LinearLayout>
