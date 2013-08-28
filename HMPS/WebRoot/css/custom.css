@@ -1,0 +1,179 @@
+.ui-page.ui-body-c {
+    background: url("../images/bg.png") repeat scroll 0 0 transparent;
+    box-shadow: 0 0 30px 5px rgba(107, 105, 105, 0.3) inset, 0 0 0 1px rgba(107, 105, 105, 0.4) inset;
+}
+.ui-icon.ui-icon-arrow-r {
+    background-color: #886F6E;
+}
+.ui-corner-all, .ui-corner-top, .ui-corner-bottom, .ui-corner-tl, .ui-corner-tr, .ui-corner-bl, .ui-header .ui-btn-corner-all, .ui-listview-filter .ui-btn-corner-all, #restau_infos .ui-btn-corner-all, #contact_buttons .ui-btn-corner-all, #notation .ui-btn-corner-all {
+    border-radius: 0.2em 0.2em 0.2em 0.2em;
+}
+.ui-btn-active {
+    background: -moz-linear-gradient(center top , #654644 0%, #331C1B 100%) repeat scroll 0 0 transparent;
+    color: #FFFFFF !important;
+}
+.ui-content .choice_list .ui-btn-active .ui-link-inherit, .ui-btn-down-c a.ui-link-inherit, #home .ui-btn-down-c a.ui-link-inherit {
+    color: #FFFFFF !important;
+}
+img {
+    -moz-box-sizing: border-box;
+    height: auto;
+    max-width: 100%;
+    width: auto;
+}
+.ui-grid-a .ui-block-a, .ui-grid-a .ui-block-b {
+    padding: 1%;
+    width: 48%;
+}
+.ui-header.ui-bar-a {
+    background: url("../images/header_bg.png") repeat scroll 0 0 transparent;
+}
+.ui-header .ui-title {
+    background: url("../images/header_logo.png") no-repeat scroll 69% 5px transparent;
+    font-size: 0;
+    height: 33px;
+    margin: 0;
+    padding: 5px 0 5px 50px;
+    text-indent: -9999px;
+}
+.ui-header .ui-btn-up-a {
+    background: none repeat scroll 0 0 rgba(255, 255, 255, 0.1);
+    box-shadow: none;
+}
+.ui-header .ui-btn-hover-a {
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0.3);
+    box-shadow: none;
+}
+#branding {
+    background: url("images/logo.png") no-repeat scroll 0 0 transparent;
+    border-bottom: 1px solid rgba(65, 38, 37, 0.6);
+    font-size: 0;
+    height: 165px;
+    margin: -10px auto 0;
+    text-indent: -999px;
+    width: 322px;
+}
+.choice_list h1 {
+    background: url("images/pagination.png") no-repeat scroll 0 0 transparent;
+    color: #412625;
+    font-size: 18px;
+    font-style: italic;
+    font-weight: normal;
+    margin-top: 30px;
+    padding: 5px 0 6px 50px;
+}
+#home .choice_list h1 {
+    background-position: 0 -16px;
+}
+#home .choice_list h3 {
+    color: #3F2927;
+    padding-top: 10px;
+}
+#home .choice_list .ui-btn-active a.ui-link-inherit h3 {
+    color: #FFFFFF;
+}
+.choice_list img {
+    padding: 3px;
+}
+#choisir_ville .choice_list h1 {
+    background-position: 0 -72px;
+    margin-bottom: 20px;
+}
+#choisir_ville .choice_list a {
+    color: #3F2927;
+    padding-top: 10px;
+}
+#choisir_ville .ui-listview-filter a {
+    padding-top: 0;
+}
+#choisir_restau .choice_list h1 {
+    background-position: 0 -132px;
+    margin: 10px auto 20px;
+}
+#choisir_restau .choice_list a {
+    color: #3F2927;
+    padding-top: 10px;
+}
+#choisir_restau .classement {
+    background: url("images/pagination.png") no-repeat scroll 0 -182px transparent;
+    font-size: 0;
+    height: 22px;
+    text-indent: -999px;
+}
+#choisir_restau .one {
+    width: 30px;
+}
+#choisir_restau .two {
+    width: 55px;
+}
+#choisir_restau .three {
+    width: 75px;
+}
+#choisir_restau .four {
+    width: 99px;
+}
+#restau_infos, #contact_infos {
+    color: #3F2927;
+    font-size: 14px;
+}
+#restau_infos h1, #contact_infos h2, #notation h2 {
+    color: #3F2927;
+    font-size: 18px;
+    margin: 0 auto 5px;
+}
+#restau_infos p, #restau_infos ul, #contact_infos p {
+    margin: 2px auto 5px;
+}
+#restau_infos ul {
+    padding: 0 0 0 10px;
+}
+#restau_infos ul li {
+    list-style-type: square;
+    margin-left: 5px;
+}
+#restau_infos .ui-block-b .ui-btn {
+    font-size: 12px;
+}
+#restau_infos .ui-block-b .ui-btn-inner {
+    padding: 5px;
+}
+#contact_buttons a {
+    color: #3F2927;
+}
+.ui-icon-maps {
+    background: url("../images/maps.png") no-repeat scroll 0 0 #3F2927;
+}
+.ui-icon-tel {
+    background: url("../images/phone.png") no-repeat scroll 0 0 #3F2927;
+}
+#note_utilisateur-menu a {
+    padding-left: 100px;
+    position: relative;
+}
+#note_utilisateur-button span.ui-btn-text {
+    background: url("images/pagination.png") no-repeat scroll 0 0 transparent;
+}
+#note_utilisateur-button span.ui-btn-inner {
+    padding-left: 5px;
+}
+#note_utilisateur-menu li a:before {
+    background: url("images/pagination.png") no-repeat scroll 0 0 transparent;
+    content: " ";
+    display: inline-block;
+    height: 20px;
+    left: 0;
+    position: absolute;
+    width: 115px;
+}
+.one #note_utilisateur-button span.ui-btn-text, #note_utilisateur-menu li a:before {
+    background-position: -75px -182px;
+}
+.two #note_utilisateur-button span.ui-btn-text, #note_utilisateur-menu li + li a:before {
+    background-position: -52px -182px;
+}
+.three #note_utilisateur-button span.ui-btn-text, #note_utilisateur-menu li + li + li a:before {
+    background-position: -27px -182px;
+}
+.four #note_utilisateur-button span.ui-btn-text, #note_utilisateur-menu li + li + li + li a:before {
+    background-position: -2px -182px;
+}

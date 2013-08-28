@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<applications xmlns="http://www.wabacus.com"
+			   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+			   xsi:schemaLocation="http://www.wabacus.com ../xsd/wabacus.applications.xsd">
+	<page xmlns="http://www.wabacus.com" id="newslist" js="/webresources/script/validate.js">
+					   <report id="report2" title="新闻列表"  type="editablelist" dataexport="richexcel|plainexcel|word">
+						    <display>
+							     <col column="newsid" displaytype="hidden"></col>
+							     <col column="bt" label="新闻标题" clickorderby="true"></col>
+							     <col column="zz" label="新闻来源"></col>
+							     <col column="fbsj" label="发布时间" clickorderby="true" datatype="date{yyyy-MM-dd}">
+								      <inputbox type="datepicker" jsvalidate="isDate({0}格式不对，必须为yyyy-MM-dd格式)"></inputbox>
+							     </col>
+								 <col column="zrbj" label="责任编辑"></col>
+						    </display>
+						    <sql>
+						       <select>
+							    <value>
+								    <![CDATA[SELECT * FROM xlh_newsinfo where  {#condition#} order by newsid]]>
+								</value>
+							    <condition name="txtbt" label="标题名称">
+								<value>
+									<![CDATA[(bt like  '%#data#%' )]]>
+								</value>
+								       <inputbox>
+								          <typeprompt width="200" count="15">
+									         <promptcol label="bt" matchmode="2"></promptcol>
+									         <datasource>select bt from xlh_newsinfo where bt like '%#data#%'</datasource>
+								          </typeprompt>
+								       </inputbox>
+							    </condition>
+							    <condition name="txtfbsj" label="发布时间">
+								<value>
+									<![CDATA[(fbsj like  '%#data#%' )]]>
+								</value>
+								       <inputbox>
+								          <typeprompt width="200" count="15">
+									         <promptcol label="fbsj" matchmode="2"></promptcol>
+									         <datasource>select fbsj from xlh_newsinfo where fbsj like '%#data#%'</datasource>
+								          </typeprompt>
+								       </inputbox>
+							    </condition>					    
+						       </select>
+						      <insert pageurl="report{editforlistpage.report1}" pagewidth="650" pageheight="400"></insert>
+							  <update pageurl="report{editforlistpage.report1}" urlparams="txtbt=@{newsid}" pagewidth="650" pageheight="400"></update>
+							  <delete>
+							  	 delete from xlh_newsinfo where newsid=@{newsid};
+							  </delete>
+						    </sql>
+					   </report>
+	</page>
+	<page id="editforlistpage" js="/webresources/script/validate.js">
+		<report id="report1" title="request{bt_name}" type="editabledetail">
+			<display valuetdwidth="100px" labeltdwidth="71px" labelbgcolor="#f0f0f0" labelalign="right" valuealign="left">
+				<col column="newsid" displaytype="hidden"/>
+				<col column="bt" label="新闻标题" br="true"/>
+				<col column="zz" label="新闻来源" br="true"/>
+				<col column="fbsj" label="发布时间"  datatype="date{yyyy-MM-dd}" br="true">
+					<inputbox type="datepicker"  jsvalidate="isDate({0}格式不对，必须为yyyy-MM-dd格式)"/>
+				</col>
+				<col column="zrbj" label="责任编辑" br="true"/>
+				<col column="zw" label="文章正文" datatype="clob" valuestyleproperty="colspan='3'">
+					<inputbox type="textareabox" styleproperty="rows='5'"/>
+				</col>
+			</display>
+			<sql>
+			  <select>
+				<value>
+					<![CDATA[SELECT * FROM xlh_newsinfo where  {#condition#}]]>
+				</value>
+				<condition name="txtbt" hidden="true">
+					<value>
+						<![CDATA[(newsid = #data#)]]>
+					</value>
+				</condition>
+			  </select>
+			  <insert>
+		  		 insert into xlh_newsinfo(@{bt},@{zz},@{fbsj},@{zrbj},@{zw});
+			  </insert>
+			  <update>
+			     update xlh_newsinfo(@{bt},@{zz},@{fbsj},@{zrbj},@{zw}) where newsid=@{newsid};
+			  </update>
+			</sql>
+			<format>
+				<value>
+					rrequest.getRequest().setAttribute("bt_name",bt);//存放request，以便显示标题时能取到
+				</value>
+			</format>
+		</report>
+	</page>
+</applications>

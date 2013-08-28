@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<applications xmlns="http://www.wabacus.com"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.wabacus.com ../xsd/wabacus.applications.xsd">
+
+	<page xmlns="http://www.wabacus.com" id="telephone"
+		js="/webresources/script/validate.js">
+		<report id="report1" type="editablelist" scrollheight="300px"
+                width="700px" align="center">
+			<display>
+				<col column="id" displaytype="hidden"></col>
+				<col column="MainDepartment" label="部门" width="180" clickorderby="true" filter="true" filterwidth="120px">
+					<inputbox jsvalidate="isNotEmpty({0}列不允许为空)"></inputbox>
+				</col>
+
+				<col column="SubDepartment" label="子部门" width="140" clickorderby="true" filter="true" filterwidth="120px">
+					<inputbox jsvalidate="isNotEmpty({0}列不允许为空)"></inputbox>
+				</col>
+
+				<col column="DepartmentCode" displaytype="hidden" width="140" label="部门类型" clickorderby="true" filter="true" filterwidth="120px">
+					 <inputbox jsvalidate="isNotEmpty({0}列不允许为空)"></inputbox>
+				</col>
+
+				<col column="Telephone" label="电话号码" clickorderby="true" width="140">
+					<inputbox type="textbox" jsvalidate="isNotEmpty({0}列不允许为空)"></inputbox>
+				</col>
+				
+				<col column="DepartmentType" label="类型" filter="true" filterwidth="120px" clickorderby="true" width="120">
+					<inputbox type="selectbox" jsvalidate="isNotEmpty({0}列不允许为空)">
+						<option source="@{select typeString from heu_telephonetype}"
+							label="typeString" value="typeString">
+						</option>
+					</inputbox>
+				</col>
+			</display>
+			<sql>
+				<select>
+					<value>
+						<![CDATA[SELECT * FROM heu_telephone where  {#condition#} order by id]]>
+					</value>
+
+					<condition name="txtMainDepartment" label="部门">
+						<value>
+							<![CDATA[(MainDepartment like '%#data#%')]]>
+						</value>
+					</condition>
+					<condition name="txtSubDepartment" label="子部门">
+						<value>
+							<![CDATA[(SubDepartment like '%#data#%')]]>
+						</value>
+					</condition>
+				</select>
+				<insert pageurl="report{telephoneedit.report1}" pagewidth="650" pageheight="400"/>
+				<update pageurl="report{telephoneedit.report1}" urlparams="txtId=@{id}" pagewidth="650" pageheight="400"/>
+				<delete>delete from heu_telephone where id=@{id};</delete>
+			</sql>
+
+		</report>
+
+		<report id="report2" title="细览表" parenttitle="组织机构二级菜单" type="form" scrollheight="300px"
+                width="700px" align="center" depends="report1" dependsparams="txtId=@{id}">
+			<display valuetdwidth="500px" labeltdwidth="71px" 
+				labelbgcolor="#f0f0f0" labelalign="center" valuealign="center">
+				<col column="id" displaytype="hidden" width="30">
+					
+				</col>
+				<col column="MainDepartment" label="部门" width="30" clickorderby="true" br="true">
+					<!-- <inputbox jsvalidate="isNotEmpty({0}列不允许为空)"></inputbox> -->
+					<inputbox type="textareabox" jsvalidate="isNotEmpty({0}列不允许为空)"></inputbox>
+				</col>
+
+				<col column="SubDepartment" label="子部门" clickorderby="true"
+				     filter="true" filterwidth="120px" br="true" width="30">
+					<inputbox type="textareabox" jsvalidate="isNotEmpty({0}列不允许为空)"></inputbox>
+				</col>
+
+				<col column="DepartmentCode" displaytype="hidden" label="部门类型" clickorderby="true" filter="true"
+					filterwidth="120px" br="true" width="30">
+					<inputbox type="textareabox" jsvalidate="isNotEmpty({0}列不允许为空)"></inputbox>
+				</col>
+
+				<col column="Telephone" label="电话号码" clickorderby="true" width="30">
+					<inputbox type="textbox" jsvalidate="isNotEmpty({0}列不允许为空)"></inputbox>
+				</col>
+				
+				<col column="DepartmentType" label="类型" filter="true" width="100" align="left">
+					<inputbox type="selectbox" jsvalidate="isNotEmpty({0}列不允许为空)">
+						<option source="@{select typeString from heu_telephonetype}"
+							label="typeString" value="typeString">
+						</option>
+					</inputbox>
+				</col>
+			</display>
+			<sql>
+				<select>
+					<value>
+						<![CDATA[SELECT * FROM heu_telephone where  {#condition#} order by id]]>
+					</value>
+					<condition name="txtId" label="部门" hidden="true">
+						<value>
+							<![CDATA[(id like '%#data#%')]]>
+						</value>
+					</condition>
+
+					<condition name="txtMainDepartment" label="部门" hidden="true">
+						<value>
+							<![CDATA[(MainDepartment like '%#data#%')]]>
+						</value>
+					</condition>
+					<condition name="txtSubDepartment" label="子部门" hidden="true">
+						<value>
+							<![CDATA[(SubDepartment like '%#data#%')]]>
+						</value>
+					</condition>
+				</select>
+				<update>
+					update heu_telephone(@{MainDepartment},@{SubDepartment},@{DepartmentCode},@{Telephone},@{DepartmentType}) where id=@{id};
+				</update>
+			</sql>
+		</report>
+	</page>
+	
+	
+	<page id="telephoneedit" js="/webresources/script/validate.js">
+		<report id="report1" title="细览表"  type="editabledetail">
+			<display valuetdwidth="100px" labeltdwidth="71px" labelbgcolor="#f0f0f0" labelalign="left" valuealign="left">
+				<col column="id" displaytype="hidden"></col>
+				<col column="MainDepartment" label="部门" clickorderby="true" br="true">
+					<inputbox jsvalidate="isNotEmpty({0}列不允许为空)"></inputbox>
+				</col>
+
+				<col column="SubDepartment" label="子部门" clickorderby="true"
+				     filter="true" filterwidth="120px" br="true">
+					<inputbox jsvalidate="isNotEmpty({0}列不允许为空)"></inputbox>
+				</col>
+
+				<col column="DepartmentCode" label="部门类型" displaytype="hidden" clickorderby="true" filter="true"
+					filterwidth="120px" br="true">
+					<inputbox jsvalidate="isNotEmpty({0}列不允许为空)"></inputbox>
+				</col>
+
+				<col column="Telephone" label="电话号码" clickorderby="true" br="true">
+					<inputbox type="textbox" jsvalidate="isNotEmpty({0}列不允许为空)"></inputbox>
+				</col>
+				
+				<col column="DepartmentType" label="类型" filter="true" width="100">
+					<inputbox type="selectbox" jsvalidate="isNotEmpty({0}列不允许为空)">
+						<option source="@{select typeString from heu_telephonetype}"
+							label="typeString" value="typeString">
+						</option>
+					</inputbox>
+				</col>
+			</display>
+			<sql>
+				<select>
+					<value>
+						<![CDATA[SELECT * FROM heu_telephone where  {#condition#} order by id]]>
+					</value>
+
+					<condition name="txtId" label="id" hidden="true">
+						<value>
+							<![CDATA[(id like '%#data#%' )]]>
+						</value>
+					</condition>
+				</select>
+				
+				<insert>insert into heu_telephone(@{MainDepartment},@{SubDepartment},@{DepartmentCode},@{Telephone},@{DepartmentType});</insert>
+				<update>update heu_telephone(@{MainDepartment},@{SubDepartment},@{DepartmentCode},@{Telephone},@{DepartmentType}) where id=@{id};</update>
+				<delete>delete from heu_telephone where id=@{id};</delete>
+			</sql>
+		</report>
+	</page>
+</applications>

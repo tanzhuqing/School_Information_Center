@@ -1,0 +1,161 @@
+P {
+	FONT-SIZE: 12px; COLOR: #000000; LINE-HEIGHT: 150%
+}
+SELECT {
+	FONT-SIZE: 12px; COLOR: #000000; LINE-HEIGHT: 150%
+}
+BODY {
+	FONT-SIZE: 12px; COLOR: #000000; LINE-HEIGHT: 150%
+}
+A:link {
+	COLOR: #0033cc; TEXT-DECORATION: none
+}
+A:visited {
+	COLOR: #003399;TEXT-DECORATION: none; 
+}
+A:active {
+	COLOR: #0033cc; TEXT-DECORATION: none
+}
+A:hover {
+	COLOR: #FF2828; TEXT-DECORATION: none
+}
+.font1 {
+	FONT: 12px/130% "宋体"; COLOR: #ffffff
+}
+.font2 {
+	FONT: 12px/170% "宋体"; COLOR: #222222
+}
+.tnt {
+	WRITING-MODE: tb-rl; TEXT-ALIGN: center
+}
+A.link1:link {
+	FONT-SIZE: 12px; COLOR: #000000; FONT-FAMILY: "宋体"; TEXT-DECORATION: none
+}
+A.link1:visited {
+	FONT-SIZE: 12px; COLOR: #000000; FONT-FAMILY: "宋体"; TEXT-DECORATION: none
+}
+A.link1:hover {
+	FONT-SIZE: 12px; COLOR: #000000; FONT-FAMILY: "宋体"; TEXT-DECORATION: underline
+}
+A.link2:link {
+	FONT-SIZE: 12px; WIDTH: 136px; COLOR: #000000; PADDING-TOP: 5px; FONT-FAMILY: "宋体"; HEIGHT: 20px; TEXT-ALIGN: center; TEXT-DECORATION: none
+}
+A.link2:visited {
+	FONT-SIZE: 12px; WIDTH: 136px; COLOR: #000000; PADDING-TOP: 5px; FONT-FAMILY: "宋体"; HEIGHT: 20px; TEXT-ALIGN: center; TEXT-DECORATION: none
+}
+A.link2:hover {
+	FONT-SIZE: 12px; BACKGROUND-IMAGE: url("../images/images/news/nav_left_over.gif"); WIDTH: 136px; COLOR: #ffffff; PADDING-TOP: 5px; FONT-FAMILY: "宋体"; HEIGHT: 20px; TEXT-ALIGN: center; TEXT-DECORATION: none
+}
+A.link3:link {
+	FONT-SIZE: 12px; WIDTH: 136px; COLOR: #000000; PADDING-TOP: 5px; FONT-FAMILY: "宋体"; HEIGHT: 20px; TEXT-ALIGN: center; TEXT-DECORATION: none
+}
+A.link3:visited {
+	FONT-SIZE: 12px; WIDTH: 136px; COLOR: #000000; PADDING-TOP: 5px; FONT-FAMILY: "宋体"; HEIGHT: 20px; TEXT-ALIGN: center; TEXT-DECORATION: none
+}
+A.link3:hover {
+	FONT-SIZE: 12px; BACKGROUND-IMAGE: url("../images/images/news/nav_left_over.gif"); WIDTH: 136px; COLOR: #ffffff; PADDING-TOP: 5px; BACKGROUND-REPEAT: no-repeat; FONT-FAMILY: "宋体"; HEIGHT: 20px; TEXT-ALIGN: center; TEXT-DECORATION: none
+}
+A.link4:link {
+	FONT-SIZE: 12px; COLOR: #ffffff; FONT-FAMILY: "宋体"; TEXT-DECORATION: none
+}
+A.link4:visited {
+	FONT-SIZE: 12px; COLOR: #ffffff; FONT-FAMILY: "宋体"; TEXT-DECORATION: none
+}
+A.link4:hover {
+	FONT-SIZE: 12px; COLOR: #336600; FONT-FAMILY: "宋体"; TEXT-DECORATION: none
+}
+A.link5:link {
+	FONT-SIZE: 12px; COLOR: #000000; FONT-FAMILY: "宋体"; TEXT-DECORATION: none
+}
+A.link5:visited {
+	FONT-SIZE: 12px; COLOR: #000000; FONT-FAMILY: "宋体"; TEXT-DECORATION: none
+}
+A.link5:hover {
+	FONT-WEIGHT: bold; FONT-SIZE: 12px; COLOR: #6d5c34; FONT-FAMILY: "宋体"; TEXT-DECORATION: none
+}
+A.link6:link {
+	FONT-SIZE: 12px; COLOR: #ffffff; FONT-FAMILY: "宋体"; TEXT-DECORATION: none
+}
+A.link6:visited {
+	FONT-SIZE: 12px; COLOR: #ffffff; FONT-FAMILY: "宋体"; TEXT-DECORATION: none
+}
+A.link6:hover {
+	FONT-SIZE: 12px; COLOR: #996600; FONT-FAMILY: "宋体"; TEXT-DECORATION: none
+}
+.t0 {
+	FONT: 12px 宋体; COLOR: #000000
+}
+.t2 {
+	FONT: 12px 宋体; COLOR: #ffffff
+}
+.bt1 {
+	FONT: 14px 宋体; COLOR: #000000
+}
+.bt2 {
+	FONT: 14px 宋体; COLOR: #ffffff
+}
+
+A.a01:link {
+	FONT-SIZE: 12px; COLOR: #ffffff; TEXT-DECORATION: none
+}
+A.a01:visited {
+	FONT-SIZE: 12px; COLOR: #ffffff; TEXT-DECORATION: none
+}
+A.a01:hover {
+	FONT-SIZE: 12px; COLOR: #ffff00; TEXT-DECORATION: underline
+}
+A.a02:link {
+	FONT-SIZE: 12px; COLOR: #222222; FONT-FAMILY: "宋体"; TEXT-DECORATION: underline
+}
+A.a02:visited {
+	FONT-SIZE: 12px; COLOR: #222222; FONT-FAMILY: "宋体"; TEXT-DECORATION: underline
+}
+A.a02:hover {
+	FONT-SIZE: 12px; COLOR: #ffcc00; FONT-FAMILY: "宋体"; TEXT-DECORATION: none
+}
+A.a11:link {
+	FONT-SIZE: 12px; COLOR: #cc3300; TEXT-DECORATION: underline
+}
+A.a11:visited {
+	FONT-SIZE: 12px; COLOR: #cc3300; TEXT-DECORATION: underline
+}
+A.a11:hover {
+	FONT-SIZE: 12px; COLOR: #ff9900; TEXT-DECORATION: none
+}
+A.a12:link {
+	FONT-SIZE: 12px; COLOR: #ff9900; FONT-FAMILY: "宋体"
+}
+A.a12:visited {
+	FONT-SIZE: 12px; COLOR: #ffffff; FONT-FAMILY: "宋体"; TEXT-DECORATION: underline
+}
+A.a12:hover {
+	FONT-SIZE: 12px; COLOR: #ffff00; FONT-FAMILY: "宋体"; TEXT-DECORATION: none
+}
+INPUT {
+	FONT-SIZE: 12px; COLOR: #000000
+}
+.input1 {
+	BORDER-RIGHT: #999999 1px solid; BORDER-TOP: #999999 1px solid; FONT-SIZE: 12px; BORDER-LEFT: #999999 1px solid; COLOR: #000000; BORDER-BOTTOM: #999999 1px solid; FONT-FAMILY: "宋体"; BACKGROUND-COLOR: #fbf8f4
+}
+.font3 {
+	FONT-SIZE: 14px; COLOR: #000000; FONT-FAMILY: "宋体"
+}
+TD {
+	FONT-SIZE: 12px; COLOR: #333333
+}
+.tnt {
+	VERTICAL-ALIGN: middle; LETTER-SPACING: 3px
+}
+.input2 {
+	BORDER-RIGHT: #000000 1px solid; BORDER-TOP: #000000 1px solid; FONT-SIZE: 12px; BORDER-LEFT: #000000 1px solid; COLOR: #000000; BORDER-BOTTOM: #000000 1px solid; FONT-FAMILY: "宋体"
+}
+.biankuang {
+	border: 8px solid #519BFF;
+}
+.biankuang1 {
+	border: 1px solid #CCCCCC;
+}
+.xiankuang {
+	border: 1px solid #006CFF;
+}
+

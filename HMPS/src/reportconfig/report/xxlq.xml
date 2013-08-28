@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<applications xmlns="http://www.wabacus.com"
+					xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+					xsi:schemaLocation="http://www.wabacus.com ../xsd/wabacus.applications.xsd">
+	<page id="xxlq">
+		<report id="report1" title="信息拉取----列表" type="editablelist">
+			<display>
+                                <col column="xxlq_id" displaytype="hidden"/>
+				<col column="title" label="标题"/>
+				<col column="content" label="内容" width="15%"/>
+				<col column="rq" label="日期" clickorderby="true" filter="true" filterwidth="120px" width="15%"/>
+				<col column="sj" label="时间" clickorderby="true" />
+			</display>
+			<sql>
+                                <select>
+				    <value>
+					<![CDATA[SELECT * FROM t_xxlq where  {#condition#} order by rq desc, sj desc]]>
+				    </value>
+
+				    <condition name="title" label="标题">
+					<value>
+						<![CDATA[(title like  '%#data#%' )]]>
+					</value>
+				    </condition>
+                                </select>
+
+                                <insert pageurl="report{xxlq_wh.report1}" pagewidth="650" pageheight="400"/>
+
+				<update pageurl="report{xxlq_wh.report1}" urlparams="xxlq_id=@{xxlq_id}" pagewidth="650" pageheight="400"/>
+
+				<delete>
+					delete from t_xxlq where xxlq_id=@{xxlq_id};
+				</delete>
+			</sql>
+
+		</report>
+	</page>
+
+        <page id="xxlq_wh" js="/webresources/script/validate.js">
+		<report id="report1" title="信息拉取----维护" type="editabledetail">
+			<display valuetdwidth="100px" labeltdwidth="71px" labelbgcolor="#f0f0f0" labelalign="right" valuealign="left">
+				<col column="xxlq_id" displaytype="hidden"/>
+				<col column="title" label="标题：" br="true" >
+				        <inputbox type="textbox" jsvalidate="isNotEmpty({0}列不允许为空)"/>	
+				</col>
+                                <col column="rq" label="日期：">
+					<inputbox type="datepicker" jsvalidate="isDate({0}格式不对，必须为yyyy-MM-dd格式)"/>
+				</col>
+				<col column="sj" label="时间：" br="true">
+					<inputbox type="textbox" jsvalidate="isNotEmpty({3}列不允许为空)" />
+                                </col>
+				<col column="content" label="内容：">
+                                        <inputbox type="textareabox" styleproperty="rows='5'" jsvalidate="isNotEmpty({1}列不允许为空)" />
+				</col>
+			</display>
+			<sql>
+                          <select>
+				<value>
+					<![CDATA[SELECT * FROM t_xxlq where  {#condition#}]]>
+				</value>
+				<condition name="xxlq_id" hidden="true">
+					<value>
+						<![CDATA[(xxlq_id like '%#data#%' )]]>
+					</value>
+				</condition>
+			  </select>
+
+			  <insert>
+		  		 insert into t_xxlq(@{title},@{content},@{rq},@{sj});
+			  </insert>
+
+                          <update>
+			     update t_xxlq(@{title},@{content},@{rq},@{sj}) where xxlq_id=@{xxlq_id};
+			  </update>
+			</sql>
+		</report>
+	</page>
+</applications>

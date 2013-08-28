@@ -1,0 +1,93 @@
+#adsbox {
+    position: absolute;
+    right: 25px;
+    top: 0;
+    width: 385px;
+    z-index: 10;
+}
+#ads_close {
+    background: url("images/x_icon.png") no-repeat scroll 0 0 transparent;
+    border: medium none !important;
+    height: 15px;
+    overflow: hidden;
+    position: absolute;
+    right: 10px;
+    text-decoration: none !important;
+    top: 10px;
+    width: 15px;
+}
+#ads_close:hover {
+    background-position: left bottom;
+}
+#adsbox .ads {
+    background: none repeat scroll 0 0 #202020;
+    border-color: #FFFFFF;
+    border-radius: 0 0 4px 4px;
+    box-shadow: 0 0 2px #999999;
+    height: 290px;
+    overflow: hidden;
+    padding: 10px;
+}
+.adsborder {
+    border: 5px solid #333333;
+    height: 280px;
+    width: 336px;
+}
+#ads_aplink {
+    border: medium none !important;
+    color: #555555;
+    overflow: hidden;
+    position: absolute;
+    right: 10px;
+    text-decoration: none !important;
+    top: 30px;
+    width: 10px;
+    word-wrap: break-word;
+}
+footer {
+    background-color: #202020;
+    bottom: 0;
+    height: 45px;
+    left: 0;
+    position: fixed;
+    width: 100%;
+    z-index: 100000;
+}
+section, footer {
+    display: block;
+}
+footer h2 {
+    color: #EEEEEE;
+    font-size: 14px;
+    font-weight: bold;
+    left: 50%;
+    margin-left: -400px;
+    padding: 13px 0 0;
+    position: absolute;
+    width: 540px;
+}
+footer h2 i {
+    color: #888888;
+    font-style: normal;
+}
+footer a.gbin1, a.gbin1:visited {
+    color: #999999;
+    font-size: 14px;
+    left: 50%;
+    margin: 14px 0 0 110px;
+    position: absolute;
+    text-decoration: none;
+    top: 0;
+}
+footer a i {
+    color: #CCCCCC;
+    font-style: normal;
+}
+footer a i b {
+    color: #E8E8E8;
+    font-weight: bold;
+}
+* {
+    margin: 0;
+    padding: 0;
+}

@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<applications xmlns="http://www.wabacus.com"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.wabacus.com ../xsd/wabacus.applications.xsd">
+
+	<page xmlns="http://www.wabacus.com" id="tag_03"
+		js="/webresources/script/validate.js">
+		<tabpanel id="tab1" margin="10px" titlestyle="2" titlewidth="100px"
+			align="center">
+			<vpanel id="vp1" parenttitle="组织机构一级菜单" align="center" bottom="1">
+				<report id="report1" rowselect="checkbox" type="editablelist2"
+					width="400px" align="center">
+					<display>
+						<col column="id" displaytype="hidden"></col>
+						<!-- <col column="id" label="id" clickorderby="true"></col> -->
+						<!-- <col column="{sequence:1}" label="序号" /> -->
+						<col column="groupName" label="一级字段" clickorderby="true">
+							<inputbox jsvalidate="isNotEmpty({0}列不允许为空)"></inputbox>
+						</col>
+						<col column="whichLevel" label="备注" clickorderby="true">
+						</col>
+					</display>
+					<sql>
+						<select>
+
+							<value>
+								<![CDATA[SELECT * FROM heu_organization where  {#condition#} order by id]]>
+							</value>
+
+							<condition name="txtGroupName" label="一级字段">
+
+								<value>
+									<![CDATA[(groupName like  '%#data#%' )]]>
+								</value>
+
+							</condition>
+						</select>
+						<insert>
+							insert into
+							heu_organization(@{groupName},@{whichLevel});
+						</insert>
+						<update>
+							update heu_organization(@{groupName},@{whichLevel})
+							where
+							id=@{id};
+						</update>
+						<delete>
+							delete from heu_organization where id=@{id};
+						</delete>
+					</sql>
+
+				</report>
+			</vpanel>
+			<vpanel id="vp2" parenttitle="组织机构二级菜单" align="center" bottom="1">
+				<report id="report2" rowselect="radiobox" type="editablelist"
+					width="700px" align="center">
+					<display>
+						<col column="id" displaytype="hidden"></col>
+						<col column="child" label="二级部门" clickorderby="true">
+							<inputbox jsvalidate="isNotEmpty({0}列不允许为空)"></inputbox>
+						</col>
+
+						<col column="tid" label="一级部门" clickorderby="true" filter="true"
+							filterwidth="120px">
+							<inputbox type="selectbox" jsvalidate="isNotEmpty({0}列不允许为空)">
+								<option source="@{select groupName from heu_organization}"
+									label="groupName" value="groupName"></option>
+							</inputbox>
+						</col>
+
+						<col column="myText" label="文本内容" clickorderby="true">
+							<inputbox type="textareabox"></inputbox>
+						</col>
+
+						<col column="image" label="图片名称" clickorderby="true" displaytype="hidden"/>
+							
+						
+
+
+
+						<col column="num" label="二级字段索引" clickorderby="true">
+							<inputbox jsvalidate="isNotEmpty({0}列不允许为空)"></inputbox>
+						</col>
+					</display>
+					<sql>
+						<select>
+							<value>
+								<![CDATA[SELECT * FROM heu_organization_sub where  {#condition#} order by id]]>
+							</value>
+
+							<condition name="txtChild" label="二级字段">
+								<value>
+									<![CDATA[(child like  '%#data#%' )]]>
+								</value>
+							</condition>
+							
+							<condition name="txtId" hidden="true">
+								<value>
+									<![CDATA[(id like  '%#data#%' )]]>
+								</value>
+							</condition>
+						</select>
+
+						<insert pageurl="report{organizationedit.report1}" pagewidth="650" pageheight="400" />
+						<update pageurl="report{organizationedit.report1}" urlparams="txtId=@{id}" pagewidth="650" pageheight="400" />
+						<delete>delete from heu_organization_sub where id=@{id};</delete>
+					</sql>
+
+				</report>
+
+				<report id="report3" title="细览表" parenttitle="组织机构二级菜单" type="form"
+					width="700px" align="center" depends="report2"
+					dependsparams="txtId=@{id}">
+					<display valuetdwidth="100px" labeltdwidth="71px" labelbgcolor="#f0f0f0" labelalign="left" valuealign="left">
+						<col column="id" label="序号" br="true" displaytype="hidden" />
+
+						<col column="child" label="二级字段" clickorderby="true">
+							<inputbox jsvalidate="isNotEmpty({0}列不允许为空)"/>
+						</col>
+
+						<col column="tid" label="关联一级字段" clickorderby="true" filter="true"
+							filterwidth="120px">
+							<inputbox type="selectbox" jsvalidate="isNotEmpty({0}列不允许为空)">
+								<option source="@{select groupName from heu_organization}"
+									label="groupName" value="groupName"/>
+							</inputbox>
+						</col>
+
+						<col column="num" label="二级字段索引" clickorderby="true" br="true">
+							<inputbox jsvalidate="isNotEmpty({0}列不允许为空)"></inputbox>
+						</col>
+
+						<col column="image" label="图片名称" clickorderby="true" br="true" displaytype="hidden"/>
+							
+
+						<col column="myText" label="文本内容" clickorderby="true" datatype="clob" valuestyleproperty="colspan='5'" br="true">
+							<inputbox type="textareabox" styleproperty="rows='100'"></inputbox>
+						</col>
+					</display>
+					<sql>
+						<select>
+							<value>
+								<![CDATA[SELECT * FROM heu_organization_sub where  {#condition#} order by id]]>
+							</value>
+
+							<condition name="txtChild" label="二级字段" hidden="true">
+								<value>
+									<![CDATA[(child like '%#data#%' )]]>
+								</value>
+							</condition>
+							
+							<condition name="txtId" label="id" hidden="true">
+								<value>
+									<![CDATA[(id like '%#data#%' )]]>
+								</value>
+							</condition>
+						</select>
+						<update>update heu_organization_sub(@{child},@{tid},@{myText},@{image},@{num}) where id=@{id};</update>
+					</sql>
+				</report>
+			</vpanel>
+		</tabpanel>
+	</page>
+
+
+	<page id="organizationedit" js="/webresources/script/validate.js">
+		<report id="report1" title="细览表" parenttitle="组织机构二级菜单" type="editabledetail">
+			<display valuetdwidth="100px" labeltdwidth="71px" labelbgcolor="#f0f0f0" labelalign="center" valuealign="center">
+				<col column="id" label="序号" br="true" displaytype="hidden" />
+
+				<col column="child" label="二级字段" clickorderby="true" br="true">
+					<inputbox jsvalidate="isNotEmpty({0}列不允许为空)"></inputbox>
+				</col>
+
+				<col column="tid" label="关联一级字段" clickorderby="true" filter="true"
+					filterwidth="120px" br="true">
+					<inputbox type="selectbox" jsvalidate="isNotEmpty({0}列不允许为空)">
+						<option source="@{select groupName from heu_organization}" label="groupName" value="groupName"/>
+					</inputbox>
+				</col>
+				
+				<col column="num" label="二级字段索引" clickorderby="true" br="true">
+					<inputbox jsvalidate="isNotEmpty({0}列不允许为空)"/>
+				</col>
+				
+				<col column="image" label="图片名称" clickorderby="true" displaytype="hidden">
+					
+				</col>
+
+				<col column="myText" label="文本内容" clickorderby="true" datatype="clob" valuestyleproperty="colspan='5'" br="true">
+					<inputbox type="textareabox" styleproperty="rows='25'"/>
+				</col>
+				
+			</display>
+			
+			<sql>
+				<select>
+					<value>
+						<![CDATA[SELECT * FROM heu_organization_sub where  {#condition#} order by id]]>
+					</value>
+
+					<condition name="txtId" hidden="true">
+						<value>
+							<![CDATA[(id like '%#data#%')]]>
+						</value>
+					</condition>
+					
+				</select>
+				
+				<insert>insert into heu_organization_sub(@{child},@{tid},@{myText},@{image},@{num});</insert>
+				
+				<update>update heu_organization_sub(@{child},@{tid},@{myText},@{image},@{num}) where id=@{id};</update>
+				
+				<delete>delete from heu_organization_sub where id=@{id};</delete>
+			</sql>
+		</report>
+	</page>
+</applications>

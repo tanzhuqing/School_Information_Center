@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<applications xmlns="http://www.wabacus.com"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.wabacus.com ../xsd/wabacus.applications.xsd">
+
+	<page xmlns="http://www.wabacus.com" id="tag_01"
+		js="/webresources/script/validate.js">
+		<report id="report1" rowselect="radiobox" title="学校简介，辉煌校史"
+			type="editablelist" pagesize="5" scrollheight="300px" width="800px"
+			align="center">
+			<display>
+				<col column="id" label="序号" width="40"></col>
+				<col column="myText" label="文本内容" clickorderby="true">
+					<inputbox type="textareabox"></inputbox>
+				</col>
+				<col column="imageName" label="图片上传">
+					<inputbox type="file" maxsize="10240" allowedtypes="jpg;gif;png"
+						displaytype="textbox" deletetype="1" savepath="relative{\upload\}"
+						rooturl="/upload/"></inputbox>
+				</col>
+				<col column="flag" label="备注" clickorderby="true">
+				</col>
+			</display>
+
+			<sql>
+				<select>
+					<value>
+						<![CDATA[SELECT * FROM heu_schoolintroduction where {#condition#} order by id]]>
+					</value>
+
+					<condition name="txtId" label="序号">
+						<value>
+						<![CDATA[(id like '%#data#%' )]]>
+						</value>
+
+					</condition>
+				</select>
+
+				<insert pageurl="report{editforlistpage1.report1}" pagewidth="650"
+					pageheight="400" />
+				<update pageurl="report{editforlistpage1.report1}" urlparams="txtId=@{id}"
+					pagewidth="650" pageheight="400" />
+				<delete>delete from heu_schoolintroduction where id=@{id};</delete>
+			</sql>
+
+		</report>
+
+		<report id="report2" title="细览表" parenttitle="学校简介，辉煌校史" type="form"
+			height="1000px" width="800px" align="center" depends="report1"
+			dependsparams="txtId=@{id}">
+			<display valuetdwidth="100px" labeltdwidth="71px"
+				labelbgcolor="#f0f0f0" labelalign="center" valuealign="center">
+				<col column="id" label="序号" br="true" />
+
+				<col column="imageName" label="图片上传" br="true">
+					<inputbox type="file" maxsize="102400" allowedtypes="jpg;gif;png"
+						displaytype="image" deletetype="1" savepath="relative{\upload\}"
+						rooturl="/upload/"></inputbox>
+				</col>
+
+				<col column="flag" label="备注" clickorderby="true" br="true">
+					<inputbox type="textareabox" styleproperty="rows='1'"></inputbox>
+				</col>
+
+				<col column="myText" label="文本内容" datatype="clob"
+					valuestyleproperty="colspan='5'">
+					<inputbox type="textareabox" styleproperty="rows='35'"
+						language="ZH"></inputbox>
+				</col>
+			</display>
+			<sql>
+				<select>
+					<value>
+						<![CDATA[SELECT * FROM heu_schoolintroduction where  {#condition#} order by id]]>
+					</value>
+					<condition name="txtId" label="序号" hidden="true">
+						<value>
+							<![CDATA[(id like '%#data#%' )]]>
+						</value>
+						<!-- <inputbox> <typeprompt count="15"> <promptcol label="deptno" matchmode="2"/> 
+							<datasource>select id from heu_schoolintroduction where id like '%#data#%'</datasource> 
+							</typeprompt> </inputbox> -->
+					</condition>
+				</select>
+				<update>
+					update
+					heu_schoolintroduction(@{myText},@{imageName},@{flag}) where
+					id=@{id};
+				</update>
+			</sql>
+		</report>
+	</page>
+
+	<page id="editforlistpage1" js="/webresources/script/validate.js"
+		width="600px" height="600" valign="middle" align="center">
+		<report id="report1" title="细览表" type="editabledetail">
+			<display valuetdwidth="100px" labeltdwidth="71px"
+				labelbgcolor="#f0f0f0" labelalign="center" valuealign="center">
+				<col column="id" label="序号" br="true" />
+
+				<col column="imageName" label="图片上传" br="true">
+					<inputbox type="file" maxsize="102400" allowedtypes="jpg;gif;png"
+						displaytype="image" deletetype="1" savepath="relative{\upload\}"
+						rooturl="/upload/"></inputbox>
+				</col>
+
+				<col column="flag" label="备注" clickorderby="true" br="true">
+					<inputbox type="textareabox" styleproperty="rows='1'"></inputbox>
+				</col>
+
+				<col column="myText" label="文本内容" datatype="clob"
+					valuestyleproperty="colspan='5'">
+					<inputbox type="textareabox" styleproperty="rows='60'"></inputbox>
+				</col>
+			</display>
+			<sql>
+				<select>
+					<value>
+						<![CDATA[SELECT * FROM heu_schoolintroduction where  {#condition#}]]>
+					</value>
+					<condition name="txtId" hidden="true">
+						<value>
+							<![CDATA[(id like '%#data#%' )]]>
+						</value>
+					</condition>
+				</select>
+
+				<update>update
+					heu_schoolintroduction(@{myText},@{imageName},@{flag}) where
+					id=@{id};
+				</update>
+				<insert>insert into heu_schoolintroduction(@{myText},@{imageName},@{flag});</insert>
+				<delete>delete from heu_schoolintroduction where id=@{id};</delete>
+			</sql>
+		</report>
+	</page>
+</applications>

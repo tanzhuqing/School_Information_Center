@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<applications xmlns="http://www.wabacus.com"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.wabacus.com ../xsd/wabacus.applications.xsd">
+	<page xmlns="http://www.wabacus.com" id="surroundingPage"
+		js="/webresources/script/validate.js, /commons/js/wabacus/common.js">
+		<report id="report1" type="editablelist" title="周边环境信息列表"
+			pagesize="20">
+			<display>
+				<col column="id" displaytype="hidden" />
+				<col column="{sequence:1}" label="序号" />
+				<col column="name" label="名称" />
+				<col column="type" label="类型" filter="true" filterwidth="120px">
+					<inputbox type="selectbox" jsvalidate="isNotEmpty({0}列不允许为空)">
+						<option label="美食" value="001" />
+						<option label="娱乐" value="002" />
+						<option label="购物" value="003" />
+					</inputbox>
+				</col>
+				<col column="content" label="内容">
+					<inputbox type="textareabox" />
+				</col>
+				<col column="imageName" label="图片">
+					<inputbox type="file" maxsize="10240" width="400px"
+						height="300px" allowedtypes="jpg;gif;png;" newfilename="{timestamp}"
+						displaytype="textbox" deletetype="0" savepath="relative{\upload}"
+						rooturl="http://" />
+
+				</col>
+				<col column="address" label="地址" />
+				<col column="tel" label="电话" />
+				<col column="latitude" label="经度" />
+				<col column="longitude" label="纬度" />
+
+			</display>
+			<sql>
+				<select>
+					<value>
+                        <![CDATA[SELECT id, name, imageName, content, tel, latitude, longitude, type, address FROM heu_surrounding where {#condition#} ORDER BY type  ]]>
+                    </value>
+
+					<condition label="名称" name="txt_name" labelstyle="2">
+						<value>
+                            <![CDATA[name like '%#data#%']]>
+						</value>
+					</condition>
+				</select>
+
+				<insert pageurl="report{surroundingedit.report1}" pagewidth="650"
+					pageheight="400" />
+				<update pageurl="report{surroundingedit.report1}" urlparams="txtId=@{id}"
+					pagewidth="650" pageheight="400" />
+				<delete>delete from heu_surrounding where id=@{id};</delete>
+			</sql>
+		</report>
+
+		<report id="report2" type="form" title="细览表" depends="report1"
+			dependsparams="txt_name=@{name}">
+			<display valuetdwidth="100px" labeltdwidth="71px" labelbgcolor="#f0f0f0" labelalign="left" valuealign="left">
+				<col column="id" displaytype="hidden" />
+				<col column="name" label="名称" br="true">
+					<inputbox jsvalidate="isNotEmpty({0}列不允许为空)" />
+				</col>
+				<col column="type" label="类型" br="true">
+					<inputbox type="selectbox" jsvalidate="isNotEmpty({0}列不允许为空)">
+						<option label="美食" value="001" />
+						<option label="娱乐" value="002" />
+						<option label="购物" value="003" />
+					</inputbox>
+				</col>
+				<col column="content" label="内容" br="true">
+					<inputbox type="textareabox" />
+				</col>
+				<col column="imageName" label="图片" br="true">
+					<inputbox type="file" maxsize="10240" width="400px"
+						height="300px" allowedtypes="jpg;gif;png;" newfilename="{timestamp}"
+						displaytype="textbox" deletetype="0" savepath="relative{\upload}"
+						rooturl="http://" />
+
+				</col>
+				<col column="address" label="地址" br="true">
+					<inputbox jsvalidate="isNotEmpty({0}列不允许为空)" />
+				</col>
+				<col column="tel" label="电话" br="true">
+					<inputbox jsvalidate="isNotEmpty({0}列不允许为空)" />
+				</col>
+				<col column="latitude" label="经度" br="true">
+					<inputbox jsvalidate="isNotEmpty({0}列不允许为空)" />
+				</col>
+				<col column="longitude" label="纬度" br="true">
+					<inputbox jsvalidate="isNotEmpty({0}列不允许为空)" />
+				</col>
+			</display>
+
+			<sql>
+				<select>
+					<value>
+                        <![CDATA[SELECT * FROM heu_surrounding where {#condition#} ORDER BY type]]>
+                    </value>
+
+					<condition label="名称" name="txt_name" labelstyle="2"
+						hidden="true">
+						<value>
+                            <![CDATA[name like '%#data#%']]>
+						</value>
+					</condition>
+				</select>
+
+				<insert>insert into heu_surrounding(@{name},@{content},@{imageName},@{type},@{address},@{tel},@{latitude},@{longitude});</insert>
+				<update>update heu_surrounding(@{name}, @{content},@{imageName},@{type},@{address},@{tel},@{latitude},@{longitude}) where id=@{id};</update>
+				<delete>delete from heu_surrounding where id=@{id};</delete>
+			</sql>
+		</report>
+	</page>
+
+	<page id="surroundingedit" js="/webresources/script/validate.js">
+		<report id="report1" title="细览表" type="editabledetail">
+			<display valuetdwidth="100px" labeltdwidth="71px"
+				labelbgcolor="#f0f0f0" labelalign="left" valuealign="left">
+				<col column="id" displaytype="hidden" />
+				<col column="name" label="名称" br="true">
+					<inputbox jsvalidate="isNotEmpty({0}列不允许为空)" />
+				</col>
+				<col column="type" label="类型" br="true">
+					<inputbox type="selectbox" jsvalidate="isNotEmpty({0}列不允许为空)">
+						<option label="美食" value="001" />
+						<option label="娱乐" value="002" />
+						<option label="购物" value="003" />
+					</inputbox>
+				</col>
+				<col column="content" label="内容" br="true">
+					<inputbox type="textareabox" />
+				</col>
+				<col column="imageName" label="图片" br="true">
+					<inputbox type="file" maxsize="10240" width="400px"
+						height="300px" allowedtypes="jpg;gif;png;" newfilename="{timestamp}"
+						displaytype="textbox" deletetype="0" savepath="relative{\upload}"
+						rooturl="http://" />
+
+				</col>
+				<col column="address" label="地址" br="true">
+					<inputbox jsvalidate="isNotEmpty({0}列不允许为空)" />
+				</col>
+				<col column="tel" label="电话" br="true">
+					<inputbox jsvalidate="isNotEmpty({0}列不允许为空)" />
+				</col>
+				<col column="latitude" label="经度" br="true">
+					<inputbox jsvalidate="isNotEmpty({0}列不允许为空)" />
+				</col>
+				<col column="longitude" label="纬度" br="true">
+					<inputbox jsvalidate="isNotEmpty({0}列不允许为空)" />
+				</col>
+			</display>
+			<sql>
+				<select>
+					<value>
+                        <![CDATA[SELECT * FROM heu_surrounding where {#condition#} ORDER BY type]]>
+                    </value>
+
+					<condition label="名称" name="txtId" hidden="true">
+						<value>
+                            <![CDATA[id like '%#data#%']]>
+						</value>
+					</condition>
+				</select>
+
+				<insert>insert into heu_surrounding(@{name},@{content},@{imageName},@{type},@{address},@{tel},@{latitude},@{longitude});</insert>
+				<update>update heu_surrounding(@{name}, @{content},@{imageName},@{type},@{address},@{tel},@{latitude},@{longitude}) where id=@{id};</update>
+				<delete>delete from heu_surrounding where id=@{id};</delete>
+			</sql>
+		</report>
+	</page>
+</applications>

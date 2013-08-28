@@ -1,0 +1,204 @@
+.mailform {
+    width: 80%;
+}
+.fieldname {
+    padding: 12px 5px 5px;
+}
+.requiredfieldname {
+    font-weight: bold;
+    padding: 12px 5px 5px;
+}
+.formfields {
+}
+.fieldbuttons {
+    padding-bottom: 2em;
+    padding-top: 1em;
+    text-align: center;
+}
+.includeitem {
+    border-bottom: 0 solid #D4D0C8;
+    padding: 0;
+}
+.includetitle {
+    color: #2B99E6;
+    margin-top: 0;
+    padding: 0;
+}
+.includedate, .includereadmore {
+    border-top: 1px dotted #303030;
+    padding: 3px 2px 7px;
+    text-align: right;
+}
+.includedate, .includereadmore a {
+    font-size: 14px;
+    text-align: right;
+}
+.includetext {
+    padding: 0;
+}
+table.meshcmseditor {
+    border-left: 1px dotted silver;
+    border-top: 1px dotted silver;
+}
+table.meshcmseditor th, table.meshcmseditor td {
+    border-bottom: 1px dotted silver;
+    border-right: 1px dotted silver;
+    padding: 2px;
+}
+table.meshcmseditor th {
+    text-align: center;
+}
+table.meshcmseditor tr:hover {
+    background-color: #EDEEEF;
+}
+div.meshcmseditor {
+    border: 1px dotted silver;
+    margin-bottom: 1em;
+    padding: 1em;
+}
+div.meshcmsfieldlabel {
+    border-bottom: 1px dotted silver;
+    margin-bottom: 0.2em;
+    margin-top: 0.8em;
+}
+div.meshcmsfield {
+    white-space: nowrap;
+}
+div.meshcmscheckbox {
+    margin: 1em 0 0 1em;
+}
+div.meshcmsbuttons {
+    border-top: 1px dotted silver;
+    margin-top: 0.8em;
+    padding-top: 0.2em;
+    text-align: center;
+}
+fieldset.meshcmseditor legend {
+    margin-bottom: 0.5em;
+}
+a.meshcmspanelicon {
+    border: 0 none;
+    display: block;
+    float: left;
+    margin: 0.5em;
+    padding: 5px;
+}
+a.meshcmspanelicon img {
+    float: left;
+    margin-right: 0.5em;
+}
+a.meshcmspanelicon:hover {
+    border: 1px solid silver;
+    padding: 4px;
+    text-decoration: none;
+}
+.imagebox {
+    float: left;
+    margin: 0 30px 30px 0;
+}
+.clearLeft {
+    clear: left;
+}
+* html .lightbox {
+    height: 1%;
+}
+.meshcmsinfo {
+    border: 1px dotted silver;
+    font-style: italic;
+    padding: 0.5em;
+}
+.meshcmsMediaPlayerScreen {
+    height: 300px;
+    width: 400px;
+}
+.meshcmsMediaPlayer_vertical .meshcmsMediaPlayerScreen {
+}
+.meshcmsMediaPlayer_horizontal .meshcmsMediaPlayerScreen {
+    float: left;
+}
+.meshcmsPlayList {
+    background-color: #7B7B7B;
+    font-family: sans-serif;
+    overflow: auto;
+}
+.meshcmsMediaPlayer_vertical .meshcmsPlayList {
+    height: 180px;
+    width: 400px;
+}
+.meshcmsMediaPlayer_horizontal .meshcmsPlayList {
+    height: 300px;
+    width: 202px;
+}
+.meshcmsPlayList a {
+    border: 1px solid #888888;
+    color: white;
+    float: left;
+    height: 56px;
+    margin: 1px;
+    overflow: hidden;
+    padding: 2px;
+    text-decoration: none;
+    width: 176px;
+}
+.meshcmsPlayList a.playing {
+    background-color: #AFAFAF;
+}
+.meshcmsPlayList a:hover {
+    background-color: #AFAFAF;
+    text-decoration: none;
+}
+.meshcmsPlayList img {
+    border: 1px solid #5A5A5A;
+    float: left;
+    margin-right: 2px;
+}
+.moduletitle {
+    font-family: arial;
+    font-size: 14px;
+    padding: 5px 0;
+}
+.modulebody {
+    font-family: arial;
+    font-size: 12px;
+    padding: 5px 0;
+}
+.breadcrumbs {
+    margin: 0 auto;
+    width: 960px;
+}
+.breadcrumbscontent {
+    float: left;
+    width: 100%;
+}
+#player {
+    -moz-outline-radius: 4px 4px 4px 4px;
+    border: 1px solid #FFFFFF;
+    cursor: pointer;
+    float: left;
+    height: 425px;
+    margin-right: 15px;
+    outline: 1px solid #333333;
+    padding: 0;
+    text-align: center;
+    width: 320px;
+}
+#player img {
+    margin-top: 97px;
+}
+#player div.info {
+    background: url("/gbin1/admin/modules/video_player/h80.png") repeat-x scroll 0 0 #000000;
+    border-top: 1px solid #CCCCCC;
+    color: #FFFFFF;
+    font-family: "bitstream vera sans","trebuchet ms";
+    font-size: 12px;
+    height: 40px;
+    margin-top: 80px;
+    opacity: 0.7;
+    padding: 5px 15px;
+    text-align: left;
+}
+#player div.info span {
+    color: #99FF99;
+    display: block;
+    font-weight: bold;
+}

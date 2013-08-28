@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<applications xmlns="http://www.wabacus.com"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.wabacus.com ../xsd/wabacus.applications.xsd">
+
+	<page xmlns="http://www.wabacus.com" id="user"
+		js="/webresources/script/validate.js">
+		<report id="report1" title="管理员一览" rowselect="checkbox" type="editablelist" pagesize="20" scrollheight="300px"
+                width="800px" align="center">
+			<display>
+				<col column="id" label="序号"></col>
+				<col column="LoginName" label="登录名" clickorderby="true">
+					<inputbox jsvalidate="isNotEmpty({0}列不允许为空)"></inputbox>
+				</col>
+
+				<col column="Password" label="密码" clickorderby="true">
+					<inputbox jsvalidate="isNotEmpty({0}列不允许为空)"></inputbox>
+				</col>
+
+				<col column="UserName" label="权限" clickorderby="true">
+					<inputbox jsvalidate="isNotEmpty({0}列不允许为空)"></inputbox>
+				</col>
+			</display>
+
+			<sql>
+				<select>
+					<value>
+						<![CDATA[SELECT * FROM heu_user where {#condition#} order by id]]>
+					</value>
+
+					<condition name="txtId" label="序号">
+						<value>
+						<![CDATA[(id like '%#data#%' )]]>
+						</value>
+
+					</condition>
+				</select>
+
+				<insert pageurl="report{userloginParticular.report1}" pagewidth="650" pageheight="400"/>
+				<update pageurl="report{userloginParticular.report1}" urlparams="txtId=@{id}" pagewidth="650" pageheight="400" />
+				<delete>delete from heu_user where id=@{id};</delete>
+			</sql>
+
+		</report>
+	</page>
+	<page id="userloginParticular" js="/webresources/script/validate.js"
+		 width="310px" align="center" valign="middle" scrollheight="300px">
+		<report id="report1" title="管理员一览" rowselect="radiobox" type="editabledetail"
+			pagesize="5" align="center" valign="middle">
+			<display>
+				<col column="id" label="序号" displaytype="hidden" width="60"></col>
+				<col column="LoginName" label="登录名" clickorderby="true" width="60" br="true">
+					<inputbox jsvalidate="isNotEmpty({0}列不允许为空)"></inputbox>
+				</col>
+
+				<col column="Password" label="密码" clickorderby="true" width="60" br="true">
+					<inputbox jsvalidate="isNotEmpty({0}列不允许为空)"></inputbox>
+				</col>
+
+				<col column="UserName" label="权限" clickorderby="true" width="60">
+					<inputbox jsvalidate="isNotEmpty({0}列不允许为空)"></inputbox>
+				</col>
+			</display>
+
+			<sql>
+				<select>
+					<value>
+						<![CDATA[SELECT * FROM heu_user where {#condition#} order by id]]>
+					</value>
+
+					<condition name="txtId" label="序号" hidden="true">
+						<value>
+						<![CDATA[(id like '%#data#%' )]]>
+						</value>
+
+					</condition>
+				</select>
+				<insert>insert into heu_user(@{LoginName},@{Password},@{UserName});</insert>
+				<update>update heu_user(@{LoginName},@{Password},@{UserName}) where id=@{id};</update>
+				<delete>delete from heu_user where id=@{id};</delete>
+			</sql>
+
+		</report>
+	</page>
+</applications>

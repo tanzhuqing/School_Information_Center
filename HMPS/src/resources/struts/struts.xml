@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+
+    <constant name="struts.enable.DynamicMethodInvocation" value="false"/>
+    <constant name="struts.devMode" value="true"/>
+    <constant name="struts.ui.theme" value="simple" />
+    <constant name="struts.multipart.maxSize" value="1000000000"></constant>
+    <!-- 将对象交给spring管理 -->
+    <constant name="struts.objectFactory" value="spring"/>
+    <!-- 指定资源编码类型 -->
+    <constant name="struts.i18n.encoding" value="UTF-8"/>
+    <!-- 指定每次请求到达，重新加载资源文件 -->
+    <constant name="struts.i18n.reload" value="false"/>
+
+    <constant name="struts.multipart.saveDir" value="c:/temp"/>
+
+    <package name="hmps-default" extends="struts-default">
+        <!--<interceptors>-->
+            <!--<interceptor name="userValidInterceptor" class="cn.heu.nic.was.common.security.SecurityInterceptor"/>-->
+            <!--<interceptor-stack name="wasStack">-->
+                <!--<interceptor-ref name="userValidInterceptor"/>-->
+				<!--<interceptor-ref name="store">-->
+					<!--<param name="operationMode">AUTOMATIC</param>-->
+				<!--</interceptor-ref>-->
+				<!--<interceptor-ref name="defaultStack" />-->
+			<!--</interceptor-stack>-->
+        <!--</interceptors>-->
+        <!--<default-interceptor-ref name="wasStack"/>-->
+
+        <!--<global-results>-->
+            <!--<result name="relogin" type="redirect">/WEB-INF/jsp/login.jsp</result>-->
+            <!--<result name="noright" type="redirect">/WEB-INF/jsp/login.jsp</result>-->
+            <!--&lt;!&ndash;<result name="error">/login.jsp</result>&ndash;&gt;-->
+        <!--</global-results>-->
+    </package>
+
+    <include file="resources/struts/struts-system.xml" />
+    <include file="resources/struts/struts-news.xml" />
+    <include file="resources/struts/struts-department.xml" />
+    <include file="resources/struts/struts-surrounding.xml" />
+    <include file="resources/struts/struts-introduction.xml" />
+    <include file="resources/struts/struts-info.xml" />
+</struts>

@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<system>
+  <!--业务数据库参数-->
+  <setup>
+    <!--站点名称-->
+    <zdmc>哈尔滨工程大学</zdmc>
+	<!--站点id-->
+    <sszd>8</sszd>
+  </setup>
+</system>

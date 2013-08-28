@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<applications xmlns="http://www.wabacus.com"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://www.wabacus.com ../xsd/wabacus.applications.xsd">
+    <page xmlns="http://www.wabacus.com" id="departmentPage" js="/webresources/script/validate.js">
+        <interceptor>
+            <imports>
+                <import>com.wabacus.util.*</import>
+            </imports>
+            <preaction>
+                rrequest.authorize("report1",Consts.DATA_PART,"jgdm","readonly","true");
+                rrequest.authorize("report1",Consts.DATA_PART,"jgmc","readonly","true");
+            </preaction>
+        </interceptor>
+        <report id="report1" type="editablelist2" title="部门基本信息列表" pagesize="20"  scrollheight="300px"
+                width="1000px"
+                dataexport="richexcel">
+            <display>
+                <col column="id" displaytype="hidden"/>
+                <col column="{sequence:1}" label="序号"/>
+                <col column="jgmc" label="机构名称" clickorderby="true"/>
+                <col column="bmmc" label="部门名称" clickorderby="true"/>
+                <col column="telephone" label="电话号码">
+                    <!--<inputbox jsvalidate="isNotEmpty(${invalid.isnotempty}),isNumeric({0}不是合法数字)" ></inputbox>-->
+                </col>
+            </display>
+            <sql>
+                <select>
+
+
+                    <value>
+                        <![CDATA[SELECT e.id, d.`JGLB`, d.`jgmc` jgmc, e.`JGmc` bmmc, e.`Telephone` telephone FROM heu_department d  RIGHT JOIN heu_department e ON d.`JGDM` = e.`PJGDM` where {#condition#} ORDER BY jgmc  ]]>
+                    </value>
+                    <condition label="部门名称" name="txt_departmentName" labelstyle="2">
+                        <value>
+                            <![CDATA[
+                            e.jgmc like '%#data#%'
+                        ]]>
+                        </value>
+                    </condition>
+                </select>
+                <update>
+                    update Heu_Department(@{telephone}) where id = @{id};
+                </update>
+                <delete>
+                    delete from Heu_Department where id = @{id};
+                </delete>
+            </sql>
+
+        </report>
+    </page>
+</applications>
