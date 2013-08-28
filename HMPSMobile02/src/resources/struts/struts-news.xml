@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+
+    <package name="news" namespace="/news" extends="struts-default">
+
+        <action name="newsAction_*" method="{1}" class="newsAction">
+
+            <result name="listNews">/WEB-INF/news/news.jsp</result>
+            <result name="addPNews">/WEB-INF/news/news-input.jsp</result>
+            <result name="addNews" type="redirectAction">newsAction_listNews</result>
+        </action>
+
+    </package>
+</struts>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ehcache>
+
+    <diskStore path="java.io.tmpdir/hibernate/was"/>
+
+    <!-- DefaultCache setting. -->
+    <defaultCache maxElementsInMemory="10000" memoryStoreEvictionPolicy="LRU" eternal="false"
+                  timeToIdleSeconds="300" timeToLiveSeconds="300" overflowToDisk="false" diskPersistent="false"/>
+    <!-- Special objects setting. -->
+    <cache name="c" maxElementsInMemory="10000"
+           memoryStoreEvictionPolicy="LRU" eternal="true" diskPersistent="false" overflowToDisk="true"
+           maxElementsOnDisk="1000000"/>
+    <cache name="cn.heu.nic.was.entity.system.User.roleList" maxElementsInMemory="10000"
+           memoryStoreEvictionPolicy="LRU" eternal="true" diskPersistent="false" overflowToDisk="true"
+           maxElementsOnDisk="1000000"/>
+    <cache name="cn.heu.nic.was.entity.system.Role" maxElementsInMemory="10000"
+           memoryStoreEvictionPolicy="LRU" eternal="true" diskPersistent="false" overflowToDisk="true"
+           maxElementsOnDisk="1000000"/>
+    <cache name="cn.heu.nic.was.entity.system.Role.authorityList" maxElementsInMemory="10000"
+           memoryStoreEvictionPolicy="LRU" eternal="true" diskPersistent="false" overflowToDisk="true"
+           maxElementsOnDisk="1000000"/>
+    <cache name="cn.heu.nic.was.entity.system.Authority" maxElementsInMemory="10000"
+           memoryStoreEvictionPolicy="LRU" eternal="true" diskPersistent="false" overflowToDisk="true"
+           maxElementsOnDisk="1000000"/>
+</ehcache>
